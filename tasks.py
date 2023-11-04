@@ -23,6 +23,13 @@ def order_robots_from_RobotSpareBin():
 
 
 def cleanup():
+    """Cleanup output folders."""
+    # create output folders if they don't exist
+    if not os.path.exists("output/receipts"):
+        os.makedirs("output/receipts")
+    if not os.path.exists("output/tmp"):
+        os.makedirs("output/tmp")
+
     for file in os.listdir("output/receipts"):
         os.remove(f"output/receipts/{file}")
     for file in os.listdir("output/tmp"):
